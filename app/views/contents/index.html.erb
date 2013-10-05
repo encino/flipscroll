@@ -1,0 +1,41 @@
+<h1>Listing contents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Desc</th>
+      <th>Url</th>
+      <th>Content type</th>
+      <th>Categories</th>
+      <th>Tags</th>
+      <th>Selector</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contents.each do |content| %>
+      <tr>
+        <td><%= content.title %></td>
+        <td><%= content.desc %></td>
+        <td><%= content.url %></td>
+        <td><%= content.content_type %></td>
+        <td><%= content.categories %></td>
+        <td><%= content.tags %></td>
+        <td><%= content.selector %></td>
+        <td><%= content.user_id %></td>
+        <td><%= link_to 'Show', content %></td>
+        <td><%= link_to 'Edit', edit_content_path(content) %></td>
+        <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Content', new_content_path %>
